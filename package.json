@@ -1,0 +1,38 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "TOP - Weather App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davmedeiros/weather-app.git"
+  },
+  "keywords": [
+    "weather"
+  ],
+  "author": "David Medeiros",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davmedeiros/weather-app/issues"
+  },
+  "homepage": "https://github.com/davmedeiros/weather-app#readme",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "eslint": "^8.47.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.0",
+    "html-webpack-plugin": "^5.5.3",
+    "prettier": "3.0.2",
+    "style-loader": "^3.3.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
