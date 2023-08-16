@@ -8,11 +8,15 @@ const API_KEY = '433f69d8466b41a9b08135400231508';
 const DEFAULT_LOCATION = 'lisbon';
 
 async function getTemperature(location = DEFAULT_LOCATION) {
-  const response = await fetch(
-    `${BASE_URL}${CURRENT_WEATHER}?key=${API_KEY}&q=${location}`
-  );
-  const weatherData = await response.json();
-  return [weatherData.current.temp_c, weatherData.current.temp_f];
+  try {
+    const response = await fetch(
+      `${BASE_URL}${CURRENT_WEATHER}?key=${API_KEY}&q=${location}`
+    );
+    const weatherData = await response.json();
+    return [weatherData.current.temp_c, weatherData.current.temp_f];
+  } catch (error) {
+    return ['N/A', 'N/A'];
+  }
 }
 
 export { getTemperature, DEFAULT_LOCATION };
