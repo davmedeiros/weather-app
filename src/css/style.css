@@ -72,3 +72,11 @@ button:hover {
   border-radius: 14px;
   padding: 10px 20px;
 }
+
+.temperature :last-child {
+  font-weight: bold;
+}
+
+#shown-location {
+  font-size: 2rem;
+}

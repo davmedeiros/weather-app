@@ -20,7 +20,10 @@ const showTemperature = async (location) => {
 
 const switchLocation = (location) => {
   showTemperature(location);
-  shownLocation.textContent = location;
+  shownLocation.textContent = location
+    .split(' ')
+    .map((word) => word[0].toUpperCase() + word.substr(1).toLowerCase())
+    .join(' ');
 };
 
 const setOnLoadEvents = () => {
