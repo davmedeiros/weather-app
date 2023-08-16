@@ -6,6 +6,8 @@ const currentTemperatureCelsius = document.querySelector(
 const currentTemperatureFahrenheit = document.querySelector(
   '#current-temperature-fahrenheit'
 );
+const locationField = document.querySelector('#location');
+const locationButton = document.querySelector('#submit-location');
 
 const showTemperature = async (location) => {
   const weather = await getTemperature(location);
@@ -15,7 +17,21 @@ const showTemperature = async (location) => {
   ] = weather;
 };
 
+const switchLocation = () => {
+  showTemperature(locationField.value);
+};
+
+const setOnLoadEvents = () => {
+  locationButton.addEventListener('click', switchLocation);
+  locationField.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      locationButton.click();
+    }
+  });
+};
+
 const render = () => {
+  setOnLoadEvents();
   showTemperature();
 };
 
