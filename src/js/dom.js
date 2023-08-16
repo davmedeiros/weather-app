@@ -1,4 +1,4 @@
-import getTemperature from './weather';
+import { getTemperature, DEFAULT_LOCATION } from './weather';
 
 const currentTemperatureCelsius = document.querySelector(
   '#current-temperature-celsius'
@@ -8,6 +8,7 @@ const currentTemperatureFahrenheit = document.querySelector(
 );
 const locationField = document.querySelector('#location');
 const locationButton = document.querySelector('#submit-location');
+const shownLocation = document.querySelector('#shown-location');
 
 const showTemperature = async (location) => {
   const weather = await getTemperature(location);
@@ -17,12 +18,16 @@ const showTemperature = async (location) => {
   ] = weather;
 };
 
-const switchLocation = () => {
-  showTemperature(locationField.value);
+const switchLocation = (location) => {
+  showTemperature(location);
+  shownLocation.textContent = location;
 };
 
 const setOnLoadEvents = () => {
-  locationButton.addEventListener('click', switchLocation);
+  locationButton.addEventListener('click', () => {
+    switchLocation(locationField.value);
+  });
+
   locationField.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       locationButton.click();
@@ -32,7 +37,7 @@ const setOnLoadEvents = () => {
 
 const render = () => {
   setOnLoadEvents();
-  showTemperature();
+  switchLocation(DEFAULT_LOCATION);
 };
 
 export default render;

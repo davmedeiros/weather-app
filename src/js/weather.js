@@ -15,4 +15,4 @@ async function getTemperature(location = DEFAULT_LOCATION) {
   return [weatherData.current.temp_c, weatherData.current.temp_f];
 }
 
-export default getTemperature;
+export { getTemperature, DEFAULT_LOCATION };
