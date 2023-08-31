@@ -1,3 +1,1 @@
-# weather-app
-
-TOP - Weather App
+# TOP - Educational Project - Weather App
